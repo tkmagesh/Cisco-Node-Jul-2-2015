@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var sessionClient = require("./services/sessionClient");
+//var sessionClient = require("./services/sessionClient");
 
 var qs = require("querystring");
 
@@ -26,12 +26,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+/*
 app.use(function(req, res, next){
     req.sessionClient = sessionClient();
     if (!req.cookies.sessionId){
         req.sessionClient.create();
     }
 })
+*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
